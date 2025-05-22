@@ -1,0 +1,17 @@
+<div *ngIf="!voted; else votedBlock" class="btn-group mb-2">
+  <button
+    *ngFor="let opt of poll.options; let i = index"
+    class="btn btn-outline-primary"
+    (click)="vote(i)">
+    {{ opt }}
+  </button>
+</div>
+
+<ng-template #votedBlock>
+  <p>
+    Te válaszod: <strong>{{ poll.options[selectedIndex!] }}</strong>
+    <span *ngIf="poll.correctAnswerIndex === selectedIndex" class="text-success">✔️ Helyes!</span>
+    <span *ngIf="poll.correctAnswerIndex !== selectedIndex" class="text-danger">❌ Helytelen</span>
+  </p>
+  <app-result [poll]="poll"></app-result>
+</ng-template>

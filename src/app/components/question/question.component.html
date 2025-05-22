@@ -1,0 +1,10 @@
+<h2 class="mb-4 text-center">Elérhető kvízkérdések</h2>
+
+<div class="d-flex flex-column align-items-center gap-4">
+  <div class="card shadow-sm w-100" style="max-width: 600px;" *ngFor="let poll of polls">
+    <div class="card-body">
+      <h5 class="card-title">{{ poll.question }}</h5>
+      <app-answer-options [poll]="poll"></app-answer-options>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Új szavazás létrehozása</h2>
+  <form (ngSubmit)="createPoll()" class="card p-4 shadow-sm">
+    <div class="mb-3">
+      <label class="form-label">Kérdés</label>
+      <input [(ngModel)]="question" name="question" class="form-control" required placeholder="Írd be a kérdést" />
+    </div>
+
+    <div *ngFor="let opt of options; let i = index; trackBy: trackByIndex" class="mb-3 input-group">
+      <input [(ngModel)]="options[i]" [name]="'option' + i" class="form-control" required placeholder="Válasz opció" />
+      <div class="input-group-text">
+        <input type="radio" [(ngModel)]="correctAnswerIndex" [value]="i" name="correct" />
+        <span class="ms-2">Helyes</span>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <button type="button" (click)="addOption()" class="btn btn-outline-secondary me-2">+ Válasz opció</button>
+      <button type="submit" class="btn btn-primary">Mentés</button>
+    </div>
+  </form>
+</div>

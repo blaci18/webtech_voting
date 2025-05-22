@@ -1,0 +1,15 @@
+<h6 class="mt-3">Eredmény:</h6>
+<div *ngFor="let opt of poll.options; let i = index" class="mb-2">
+  <div class="d-flex justify-content-between">
+    <span>{{ opt }}</span>
+    <span>{{ poll.votes[i] }} szavazat ({{ getPercentage(poll.votes[i]) }})</span>
+  </div>
+  <div class="progress">
+    <div class="progress-bar bg-success" role="progressbar"
+         [style.width]="getPercentage(poll.votes[i])"
+         [attr.aria-valuenow]="poll.votes[i]"
+         aria-valuemin="0"
+         [attr.aria-valuemax]="getTotalVotes()">
+    </div>
+  </div>
+</div>
