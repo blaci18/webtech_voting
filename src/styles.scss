@@ -1,6 +1,6 @@
 /* Alap betű és háttér */
 body {
-  background-color: #f8f9fa; // világosabb szürke háttér
+  background-color: #b3b3b3; // világosabb szürke háttér
   font-family: 'Segoe UI', Roboto, sans-serif;
   color: #212529;
   margin: 0;
@@ -13,7 +13,7 @@ body {
 }
 
 .navbar .nav-link {
-  color: #ffffff !important;
+  color: #4b4b4b !important;
   margin-left: 1rem;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -58,7 +58,7 @@ button {
   max-width: 800px;
 }
 .navbar .nav-link:hover {
-  color: #d1e0ff !important;
+  color: #c9c9c9 !important;
 }
 
 .navbar .nav-link:hover,

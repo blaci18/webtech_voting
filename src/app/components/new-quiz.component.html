@@ -1,0 +1,26 @@
+<div class="container">
+  <h2 class="mb-3">Új kvíz létrehozása</h2>
+
+  <form (ngSubmit)="createQuiz()" class="card p-4 shadow-sm">
+    <div class="mb-3">
+      <label class="form-label">Kvíz címe</label>
+      <input [(ngModel)]="title" name="title" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Szavazás határideje</label>
+      <input [(ngModel)]="deadline" name="deadline" type="datetime-local" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Kérdések</label>
+      <div *ngFor="let poll of polls" class="form-check">
+        <input type="checkbox" class="form-check-input" [value]="poll.id"
+               (change)="toggleQuestion(poll.id)" [checked]="selectedQuestionIds.includes(poll.id)" />
+        <label class="form-check-label">{{ poll.question }}</label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Kvíz mentése</button>
+  </form>
+</div>

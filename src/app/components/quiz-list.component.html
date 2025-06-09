@@ -1,0 +1,18 @@
+<div class="container">
+  <h2 class="mb-4">Kvízek listája</h2>
+
+  <div *ngFor="let quiz of quizzes" class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ quiz.title }}</h5>
+      <p class="card-text">
+        <strong>Kérdések száma:</strong> {{ quiz.questionIds.length }}<br />
+        <strong>Határidő:</strong> {{ quiz.deadline ? (quiz.deadline | date: 'medium') : 'Nincs megadva' }}<br />
+        <strong>Állapot:</strong>
+        <span [ngClass]="{ 'text-success': isActive(quiz), 'text-danger': !isActive(quiz) }">
+          {{ isActive(quiz) ? 'Aktív' : 'Lejárt' }}
+        </span>
+      </p>
+      <button *ngIf="isActive(quiz)" class="btn btn-primary" (click)="startQuiz(quiz.id)">Indítás</button>
+    </div>
+  </div>
+</div>
